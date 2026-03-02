@@ -1,85 +1,72 @@
-Hamiltonian Cryptography
-A Java-based desktop application that bridges graph theory and data security. This project allows users to generate cryptographic keys by drawing Hamiltonian paths on an interactive grid, which are then mathematically converted into Lehmer codes to encrypt and decrypt files using a transposition cipher.
+# Hamiltonian Cryptography 🔐
 
-🌟 Features
-Interactive Graph UI: Draw a custom path across a 4x4 node grid. The path must visit every node exactly once (a Hamiltonian Path).
+An interactive Java application that combines **Graph Theory** with **Data Security**. Users generate cryptographic keys by drawing Hamiltonian paths on a grid, which are then used to encrypt or decrypt files using a transposition cipher.
 
-Auto-Solver (Hint): Stuck? The app includes a randomized backtracking algorithm to instantly generate a valid Hamiltonian path for you.
+## 🌟 Features
 
-Lehmer Code Generation: Automatically converts your completed visual path into a mathematical permutation key (Lehmer code).
+* **Interactive Graph UI:** Draw paths on a 4x4 grid. A path is only valid if it visits every node exactly once (Hamiltonian Path).
+* **Auto-Solver (Hint):** Includes a backtracking algorithm to find a valid path automatically if you get stuck.
+* **Lehmer Code Logic:** Converts visual permutations into mathematical Lehmer codes to serve as encryption keys.
+* **File Encryption:** Secures any file type (text, images, PDFs) by shuffling data blocks.
+* **Bilingual Support:** Full UI localization for both **English** and **Hebrew (עברית)**.
 
-File Encryption & Decryption: Uses the generated key to secure any file via a block transposition cipher.
+---
 
-Bilingual Interface: Seamlessly switch between English and Hebrew (עברית) UI with the click of a button.
+## 🚀 Getting Started
 
-🧠 How It Works
-The Graph: The app generates a 4x4 grid of nodes connected to their neighbors (including diagonals).
+### Prerequisites
+* **Java JDK 8** or higher.
+* A terminal or an IDE (IntelliJ IDEA, Eclipse, etc.).
 
-The Path: The user (or the auto-solver) traces a Hamiltonian path through the graph.
+### Installation
+1.  **Clone the repository:**
+    ```bash
+    git clone [https://github.com/your-username/hamiltonian-cryptography.git](https://github.com/your-username/hamiltonian-cryptography.git)
+    ```
+2.  **Navigate to the project directory:**
+    ```bash
+    cd hamiltonian-cryptography
+    ```
+3.  **Compile the source code:**
+    ```bash
+    javac *.java
+    ```
+4.  **Run the application:**
+    ```bash
+    java Main
+    ```
 
-The Key: The sequence of visited nodes is treated as a permutation. This permutation is converted into a Lehmer Code, which provides a unique numerical representation of the path.
+---
 
-The Cipher: When encrypting a file, the file's bytes are read in blocks. The Lehmer code determines how the bytes within each block are shuffled (transposed). Decryption simply applies the inverse permutation to restore the original file.
+## 🎮 How to Use
 
-🚀 Getting Started
-Prerequisites
-Java Development Kit (JDK): Version 8 or higher.
+1.  **Create a Key:**
+    * **Manual:** Click and drag your mouse through the nodes. Nodes turn **green** when visited.
+    * **Automatic:** Click the **Get Hint / רמז** button to let the algorithm find a path for you.
+2.  **Verify the Path:**
+    * Once all nodes are visited, the status bar at the top will turn green and display: *"Status: Hamiltonian path created! Key is ready."*
+3.  **Encrypt:**
+    * Click **Encrypt File / הצפן קובץ**.
+    * Choose a file from your computer. The app will create a `.encrypted` version of that file.
+4.  **Decrypt:**
+    * Ensure the **exact same path** is drawn on the graph.
+    * Click **Decrypt File / פענח קובץ** and select your encrypted file.
 
-An IDE (like IntelliJ IDEA, Eclipse) or command-line Java tools.
+---
 
-Installation & Running
-Clone the repository:
+## 🛠️ Technical Overview
 
-Bash
+* **Graph Structure:** A 4x4 grid where each node is connected to its horizontal, vertical, and diagonal neighbors.
+* **Pathfinding:** Uses a **Recursive Backtracking** algorithm with randomized neighbor selection to provide different hints every time.
+* **Encryption Algorithm:** A **Block Transposition Cipher**. It uses the Lehmer code (derived from the Hamiltonian path) to shuffle the order of bytes within each block of data.
 
-git clone https://github.com/yourusername/hamiltonian-cryptography.git
-Navigate to the project directory:
+---
 
-Bash
+## 📁 File Structure
 
-cd hamiltonian-cryptography/src
-Compile the Java files:
-
-Bash
-
-javac *.java
-Run the application:
-
-Bash
-
-java Main
-🎮 How to Use
-Generate a Key: * Click and drag your mouse across the blue nodes to connect them. A node turns green once visited.
-
-You must visit every node exactly once.
-
-Alternatively, click Get Hint (רמז / פתרון) to generate a random path automatically.
-
-Encrypt a File:
-
-Once a valid path is drawn and the top status turns green, click Encrypt File (הצפן קובץ).
-
-Select the file you want to secure. A new file with an .encrypted extension will be created.
-
-Decrypt a File:
-
-You must recreate the exact same Hamiltonian path used for encryption.
-
-Click Decrypt File (פענח קובץ) and select the .encrypted file. A new .decrypted file will be generated.
-
-Change Language:
-
-Click the עברית / English button in the bottom right corner to toggle the application's display language.
-
-📁 Project Structure
-Main.java - Application entry point.
-
-MainWindow.java - Main GUI frame and layout management.
-
-GraphPanel.java - Custom JPanel for drawing and interacting with the visual graph.
-
-Graph.java - Handles grid generation and the backtracking algorithm for the auto-solver.
-
-Node.java - Data structure for individual graph vertices.
-
-CryptoManager.java - Handles file I/O and the transposition cipher logic.
+* `Main.java` - Launches the application.
+* `MainWindow.java` - Controls the GUI layout and language switching.
+* `GraphPanel.java` - Handles the interactive drawing logic.
+* `Graph.java` - Contains the math for Lehmer codes and backtracking.
+* `CryptoManager.java` - Manages byte-level file processing.
+* `LanguageManager.java` - Stores all English and Hebrew strings.
