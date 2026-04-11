@@ -25,7 +25,7 @@ An interactive Java application that combines **Graph Theory** with **Data Secur
     ```
 2.  **Navigate to the project directory:**
     ```bash
-    cd /Hamiltonian-Cryptography/HamiltonCrypt/src
+    cd Hamiltonian-Cryptography/HamiltonCrypt/src
     ```
 3.  **Compile the source code:**
     ```bash
