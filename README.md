@@ -21,11 +21,11 @@ An interactive Java application that combines **Graph Theory** with **Data Secur
 ### Installation
 1.  **Clone the repository:**
     ```bash
-    git clone [https://github.com/your-username/hamiltonian-cryptography.git](https://github.com/your-username/hamiltonian-cryptography.git)
+    git clone "https://github.com/0x21E/Hamiltonian-Cryptography.git"
     ```
 2.  **Navigate to the project directory:**
     ```bash
-    cd hamiltonian-cryptography
+    cd /Hamiltonian-Cryptography/HamiltonCrypt/src
     ```
 3.  **Compile the source code:**
     ```bash
